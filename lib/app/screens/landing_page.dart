@@ -50,7 +50,7 @@ class AppComponentState extends State<AppComponent> {
               padding: EdgeInsets.zero,
               children: <Widget>[
                 new DrawerHeader(
-                  child: new Text('Drawer Header'),
+                  child: new Text('Drawer Headers'),
                   decoration: new BoxDecoration(
                     color: Colors.blue,
                   ),
