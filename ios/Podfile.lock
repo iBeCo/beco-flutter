@@ -1,0 +1,28 @@
+PODS:
+  - device_info (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - location (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - device_info (from `Pods/.symlinks/plugins/device_info-0.1.2/ios`)
+  - Flutter (from `Pods/.symlinks/flutter/ios-release`)
+  - location (from `Pods/.symlinks/plugins/location-1.2.0/ios`)
+
+EXTERNAL SOURCES:
+  device_info:
+    :path: Pods/.symlinks/plugins/device_info-0.1.2/ios
+  Flutter:
+    :path: Pods/.symlinks/flutter/ios-release
+  location:
+    :path: Pods/.symlinks/plugins/location-1.2.0/ios
+
+SPEC CHECKSUMS:
+  device_info: 76ce0b32e13034d1883be4a382433648f9dcee63
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  location: 26c90953ad5916331d0d1d913898779910416487
+
+PODFILE CHECKSUM: 70e69985f01fdaffe3180d3ae5e73472304a9371
+
+COCOAPODS: 1.5.0
