@@ -36,7 +36,6 @@ class AppComponentState extends State<AppComponent> {
 
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
     Widget app;
     if (_isLoading) {
       app = new Center(
@@ -44,75 +43,59 @@ class AppComponentState extends State<AppComponent> {
       );
     } else {
       app = new Scaffold(
-          drawer: new Drawer(
-            child: new ListView(
-              // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                new DrawerHeader(
-                  child: new Text('Drawer Headers'),
-                  decoration: new BoxDecoration(
-                    color: Colors.blue,
-                  ),
+        drawer: new Drawer(
+          child: new ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              new DrawerHeader(
+                child: new Text('Drawer Headers'),
+                decoration: new BoxDecoration(
+                  color: Colors.blue,
                 ),
-                new ListTile(
-                  title: new Text('Item 1'),
-                  onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
-                  },
-                ),
-                new ListTile(
-                  title: new Text('Item 2'),
-                  onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            ),
+              ),
+              new ListTile(
+                title: new Text('Item 1'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              new ListTile(
+                title: new Text('Item 2'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+            ],
           ),
-          body: new Padding(
-            padding: new EdgeInsets.only(top: statusBarHeight),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  color: Colors.white,
-                  height: kToolbarHeight,
-                  child: new Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      new FlatButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, 'locationView');
-                          },
-                          child:
-                              buildButtonRow(Icons.arrow_drop_down, 'Nearby'))
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: new ListView.builder(
-                    itemBuilder: (context, index) {
-                      return new GestureDetector(
-                        child:
-                            new MallListCell(_stores[index], currentLocation),
-                        onTap: () {
-                          print('tapped');
-                          Navigator.of(context).pushNamed('locationView');
-                        },
-                      );
-                    },
-                    itemCount: _stores.length,
-                  ),
-                )
-              ],
-            ),
-          ));
+        ),
+        appBar: new AppBar(
+            backgroundColor: Colors.white,
+            title: new FlatButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'locationView');
+              },
+              child: buildButtonRow(Icons.arrow_drop_down, 'Nearby'),
+            )),
+        body: new ListView.builder(
+          itemBuilder: (context, index) {
+            return new GestureDetector(
+              child: new MallListCell(_stores[index], currentLocation),
+              onTap: () {
+                print('tapped');
+                Navigator.of(context).pushNamed('locationView');
+              },
+            );
+          },
+          itemCount: _stores.length,
+        ),
+      );
     }
     return app;
   }
@@ -125,7 +108,6 @@ class AppComponentState extends State<AppComponent> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         new Container(
-          margin: const EdgeInsets.only(left: 10.0),
           child: new Text(
             label,
             style: new TextStyle(
